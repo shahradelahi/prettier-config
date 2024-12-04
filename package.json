@@ -1,6 +1,6 @@
 {
   "name": "@shahrad/prettier-config",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": false,
   "description": "My personal Prettier config",
   "homepage": "https://github.com/shahradelahi/prettier-config#readme",
