@@ -1,5 +1,5 @@
-/** @type {import('prettier').Config} */
-const config = {
+/** @type {import('@ianvs/prettier-plugin-sort-imports').PrettierConfig} */
+const DEFAULT_CONFIG = {
   useTabs: false,
   semi: true,
   singleQuote: true,
@@ -25,4 +25,4 @@ const config = {
   ],
 };
 
-export default config;
+export default DEFAULT_CONFIG;

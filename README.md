@@ -27,11 +27,14 @@ pnpm i -D @shahrad/prettier-config
 ###### `prettier.config.mjs`
 
 ```javascript
-import Config from '@shahrad/prettier-config';
+import DEFAULT_CONFIG from '@shahrad/prettier-config';
 
-export default Object.assign(Config, {
-  // your overrides
+/** @type {import('prettier').Config} */
+const config = Object.assign(DEFAULT_CONFIG, {
+  trailingComma: 'none',
 });
+
+export default config;
 ```
 
 ## License
