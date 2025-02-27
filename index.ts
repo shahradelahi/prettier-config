@@ -1,4 +1,5 @@
-/** @type {import('@ianvs/prettier-plugin-sort-imports').PrettierConfig} */
+import type { PrettierConfig } from '@ianvs/prettier-plugin-sort-imports';
+
 const DEFAULT_CONFIG = {
   useTabs: false,
   semi: true,
@@ -16,13 +17,20 @@ const DEFAULT_CONFIG = {
         printWidth: 79,
       },
     },
+    {
+      files: ['Dockerfile', '*.dockerfile'],
+      options: {
+        spaceRedirects: false,
+      },
+    },
   ],
-  importOrder: ['<THIRD_PARTY_MODULES>', '', '^@/(.*)$', '^@/tests/(.*)$', '', '^[./]'],
+  importOrder: ['node:*', '<THIRD_PARTY_MODULES>', '', '^@/(.*)$', '^@/tests/(.*)$', '', '^[./]'],
+  importOrderParserPlugins: ['typescript', 'jsx', 'explicitResourceManagement'],
   plugins: [
     '@ianvs/prettier-plugin-sort-imports',
     'prettier-plugin-packagejson',
     'prettier-plugin-sh',
   ],
-};
+} satisfies PrettierConfig;
 
 export default DEFAULT_CONFIG;
