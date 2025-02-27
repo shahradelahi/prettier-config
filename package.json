@@ -1,21 +1,32 @@
 {
   "name": "@shahrad/prettier-config",
-  "version": "1.0.0",
-  "private": false,
+  "version": "1.2.0",
   "description": "My personal Prettier config",
   "homepage": "https://github.com/shahradelahi/prettier-config#readme",
-  "repository": "github:shahradelahi/prettier-config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahradelahi/prettier-config.git"
+  },
   "license": "MIT",
   "author": "Shahrad Elahi <shahrad@litehex.com> (https://github.com/shahradelahi)",
   "type": "module",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "index.js",
-    "index.d.ts"
+    "dist/**",
+    "!*.d.cts"
   ],
   "scripts": {
-    "clean": "git clean -xdf node_modules",
+    "build": "tsup --dts-resolve --format cjs,esm index.ts",
+    "clean": "git clean -xdf node_modules dist",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
@@ -23,20 +34,22 @@
     "prepublishOnly": "pnpm lint && pnpm format:check"
   },
   "dependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
-    "prettier-plugin-packagejson": "^2.5.6",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
+    "prettier-plugin-packagejson": "^2.5.8",
     "prettier-plugin-sh": "^0.14.0"
   },
   "devDependencies": {
     "@shahrad/eslint-config": "^1.0.0",
-    "eslint": "^9.16.0"
+    "@sindresorhus/tsconfig": "^7.0.0",
+    "eslint": "^9.21.0",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
   },
   "peerDependencies": {
     "prettier": ">=3.0.0"
   },
-  "packageManager": "pnpm@9.14.4",
+  "packageManager": "pnpm@9.15.5",
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   }
 }
