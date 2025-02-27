@@ -14,7 +14,7 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "default": "./dist/index.cjs"
     }
   },
   "main": "dist/index.cjs",
@@ -34,9 +34,9 @@
     "prepublishOnly": "pnpm lint && pnpm format:check"
   },
   "dependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
-    "prettier-plugin-packagejson": "^2.5.8",
-    "prettier-plugin-sh": "^0.14.0"
+    "@ianvs/prettier-plugin-sort-imports": "latest",
+    "prettier-plugin-packagejson": "latest",
+    "prettier-plugin-sh": "latest"
   },
   "devDependencies": {
     "@shahrad/eslint-config": "^1.0.0",
@@ -46,10 +46,14 @@
     "typescript": "^5.7.3"
   },
   "peerDependencies": {
-    "prettier": ">=3.0.0"
+    "@ianvs/prettier-plugin-sort-imports": "^4.4",
+    "prettier": ">=3.0.0",
+    "prettier-plugin-packagejson": "^2.5",
+    "prettier-plugin-sh": "^0.15"
   },
-  "packageManager": "pnpm@9.15.5",
+  "packageManager": "pnpm@10.5.2",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   }
 }
