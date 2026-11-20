@@ -10,40 +10,15 @@
   "license": "MIT",
   "author": "Shahrad Elahi <shahrad@litehex.com> (https://github.com/shahradelahi)",
   "type": "module",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    }
-  },
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "dist/**"
+    "lib/*"
   ],
   "scripts": {
-    "build": "tsup",
-    "clean": "git clean -xdf node_modules dist",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "pnpm typecheck && eslint .",
-    "lint:fix": "eslint --fix .",
-    "prepublishOnly": "pnpm build && pnpm lint && pnpm format:check",
-    "typecheck": "tsc --noEmit"
-  },
-  "devDependencies": {
-    "@shahrad/eslint-config": "^1.1.0",
-    "@shahrad/tsconfig": "^1.3.0",
-    "eslint": "^10.15.0",
-    "tsup": "^9.0.0",
-    "typescript": "^6.0.3"
+    "prepublishOnly": "pnpm format:check"
   },
   "peerDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^6",
