@@ -1,12 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@sindresorhus/tsconfig",
-  "compilerOptions": {
-    "module": "esnext",
-    "target": "esnext",
-    "moduleResolution": "bundler",
-    "outDir": "dist"
-  },
+  "extends": "@shahrad/tsconfig",
   "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,4 +1,7 @@
-import type { PrettierConfig } from '@ianvs/prettier-plugin-sort-imports';
+import type { Config } from 'prettier';
+import * as SortImportPlugin from '@trivago/prettier-plugin-sort-imports';
+import * as PackageJsonPlugin from 'prettier-plugin-packagejson';
+import * as ShellPlugin from 'prettier-plugin-sh';
 
 const DEFAULT_CONFIG = {
   useTabs: false,
@@ -25,12 +28,9 @@ const DEFAULT_CONFIG = {
     },
   ],
   importOrder: ['node:*', '<THIRD_PARTY_MODULES>', '', '^@/(.*)$', '^@/tests/(.*)$', '', '^[./]'],
-  importOrderParserPlugins: ['typescript', 'jsx', 'explicitResourceManagement'],
-  plugins: [
-    '@ianvs/prettier-plugin-sort-imports',
-    'prettier-plugin-packagejson',
-    'prettier-plugin-sh',
-  ],
-} satisfies PrettierConfig;
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
+  plugins: [SortImportPlugin, PackageJsonPlugin, ShellPlugin],
+} satisfies Config;
 
 export default DEFAULT_CONFIG;
